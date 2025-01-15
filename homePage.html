@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azan Aircond Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position:center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: #2596be;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            position: relative;
+            font-family: "Poppins";
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        header img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #2596be;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a{
+            color: #ffdd57;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .radio-label:hover{
+            background-color: white;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+        .radio-label {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            padding: 20px;
+            margin: 10px auto;
+            background-color: white;
+            color: black;
+            font-size: 16px;
+            border-radius: 18px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+        .text-input-container {
+            margin: 10px 0;
+            display: block;
+            text-align: left;
+        }
+        .text-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .radio-input {
+            display: none;
+        }
+        .radio-input:checked + .radio-label {
+            background-color: #2596be;
+            color: white;
+        }
+        .text-input:focus {
+            border-color: #2596be;
+            box-shadow: 0 0 5px rgba(37, 150, 190, 0.5);
+            outline: none;
+        }
+        .counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        } 
+        .counter button {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            border: none;
+            background-color: #2596be;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .counter button:hover {
+            background-color: #005bb5;
+        }
+        .counter input {
+            width: 60px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .total-price {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            background-color: #2596be;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+        .button:hover {
+            background-color: #005bb5;
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 768px) {
+            .radio-label, .text-input-container {
+                max-width: 100%;
+            }
+        }
+
+        .fixed-whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            z-index: 1000; /* Ensures the button stays above other content */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .fixed-whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="azan.png" alt="Azan Aircond Logo"><br>FUTURE AIR COND & SERVICES SDN BHD</header>
+    <div class="container">
+        <h1 style="color:#1e5d73; text-align: center;"> Chemical Canvas Service</h1>
+        <h2><span style="color:rgba(53,255,49,255)"></span> Pilih jenis penghawa dingin</h2>
+        <form id="serviceForm">
+            <div class="button-container">
+                <input type="radio" id="inverter" name="type" value="inverter" class="radio-input">
+                <label for="inverter" class="radio-label">Inverter</label>
+                <input type="radio" id="non-inverter" name="type" value="non-inverter" class="radio-input">
+                <label for="non-inverter" class="radio-label">Non-Inverter</label>
+            </div>
+
+        <h2><span style="color:rgb(4,6,246)"></span> Pilih kekuatan penghawa dingin</h2>
+            <div class="button-container">
+                <input type="radio" id="1hp" name="hp" value="1hp" class="radio-input">
+                <label for="1hp" class="radio-label">1 HP</label>
+                <input type="radio" id="1.5hp" name="hp" value="1.5hp" class="radio-input">
+                <label for="1.5hp" class="radio-label">1.5 HP</label>
+                <input type="radio" id="2hp" name="hp" value="2hp" class="radio-input">
+                <label for="2hp" class="radio-label">2 HP</label>
+                <input type="radio" id="2.5hp" name="hp" value="2.5hp" class="radio-input">
+                <label for="2.5hp" class="radio-label">2.5 HP</label>
+            </div>
+        <h2><span style="color:rgba(53,255,49,255)"></span> Pilih bilangan Unit Penghawa Dingin</h2>
+            <div class="counter">
+                <button type="button" id="decrease">-</button>
+                <input type="number" id="units" name="units" value="1" min="1" readonly>
+                <button type="button" id="increase">+</button>
+            </div>
+        <h2><span style="color:rgba(53,255,49,255)"></span> Masukkan maklumat anda</h2>
+            <label class="text-input-container">
+                <span>Alamat</span>
+                <input type="text" id="address" name="address" placeholder="Masukkan alamat anda" class="text-input" required>
+            </label>
+
+            <label class="text-input-container">
+                <span>Nombor Telefon</span>
+                <input type="text" id="mobile" name="mobile" placeholder="Masukkan nombor telefon anda" class="text-input" required>
+            </label>
+
+            <label class="text-input-container">
+                <span>Tarikh Servis</span>
+                <input type="date" id="date" name="date" class="text-input" required>
+            </label>
+            <div class="total-price" id="totalPrice">Total Price: RM0</div>
+            <a href="#" id="whatsappLink" class="button" target="_blank">Book Now!</a>
+        </form>
+    </div>
+
+    <a href="https://wa.me/601137661680?text=Hello%2C+I+have+a+general+inquiry+about+Future+Air+Cond+Services." 
+        class="fixed-whatsapp-button" 
+        target="_blank">
+        💬
+    </a>
+    <footer>
+        Designed by <a href="https://www.instagram.com/nailaodiaries/" target="_blank">奶酪</a> © 2024 Future Air Cond & Services Sdn Bhd. All rights reserved.
+    </footer>
+
+    <script>
+        const unitsInput = document.getElementById('units');
+        const addressInput = document.getElementById('address');
+        const mobileInput = document.getElementById('mobile');
+        const dateInput = document.getElementById('date');
+        const whatsappLink = document.getElementById('whatsappLink');
+
+        // Add event listeners for the plus/minus buttons
+        document.getElementById('increase').addEventListener('click', () => {
+            unitsInput.value = parseInt(unitsInput.value) + 1;
+            calculateTotal();
+        });
+
+        document.getElementById('decrease').addEventListener('click', () => {
+            if (parseInt(unitsInput.value) > 1) {
+                unitsInput.value = parseInt(unitsInput.value) - 1;
+                calculateTotal();
+            }
+        });
+
+        function calculateTotal() {
+            const type = document.querySelector('input[name="type"]:checked')?.value || '';
+            const hp = document.querySelector('input[name="hp"]:checked')?.value || '';
+            const units = parseInt(unitsInput.value) || 1;
+            const address = addressInput.value.trim() || 'Not provided';
+            const mobile = mobileInput.value.trim() || 'Not provided';
+            const date = dateInput.value || 'Not provided';
+
+            let pricePerUnit = 0;
+
+            // Calculate price based on type and HP
+            if (type === 'non-inverter') {
+                if (hp === '1hp' || hp === '1.5hp') pricePerUnit = 120;
+                else if (hp === '2hp') pricePerUnit = 150;
+                else if (hp === '2.5hp') pricePerUnit = 180;
+            } else if (type === 'inverter') {
+                if (hp === '1hp' || hp === '1.5hp') pricePerUnit = 140;
+                else if (hp === '2hp' || hp === '2.5hp') pricePerUnit = 180;
+            }
+
+            const totalPrice = pricePerUnit * units;
+
+            // Format details for WhatsApp
+            const formattedType = type.charAt(0).toUpperCase() + type.slice(1).replace('-', ' ');
+            const formattedHP = hp.toUpperCase().replace('HP', ' HP');
+            const formattedDate = new Date(date).toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+            });
+
+            const whatsappMessage = `
+                Booking Details:
+                ---------------------
+                🛠️ Jenis: ${formattedType}
+                🔌 Horse Power: ${formattedHP}
+                📦 Unit: ${units}
+                🏠 Alamat: ${address}
+                📞 Telefon: ${mobile}
+                📅 Tarikh: ${date ? formattedDate : 'Not provided'}
+                💵 Jumlah Harga: RM ${totalPrice}
+                ---------------------
+                Terima Kasih kerana memilih Future Air Cond & Services Sdn Bhd!
+            `.trim();
+
+            // Update Total Price
+            const totalPriceDiv = document.querySelector('.total-price');
+            if (totalPriceDiv) totalPriceDiv.textContent = `Total Price: RM ${totalPrice}`;
+
+            // Update WhatsApp Link
+            whatsappLink.href = `https://wa.me/601137661680?text=${encodeURIComponent(whatsappMessage)}`;
+        }
+
+        // Initialize event listeners for live updates
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.addEventListener('change', calculateTotal);
+        });
+
+        unitsInput.addEventListener('change', calculateTotal);
+        [addressInput, mobileInput, dateInput].forEach(input => {
+            input.addEventListener('input', calculateTotal);
+        });
+
+        // Run calculateTotal on page load to ensure proper initialization
+        calculateTotal();
+
+    </script>
+</body>
+</html>
